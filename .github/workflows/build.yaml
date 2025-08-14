@@ -25,10 +25,10 @@ jobs:
       - name: Build and Push Docker Image
         id: build
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/medis-clinic:${GITHUB_SHA}
+          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/php:8.4-fpm-alpine3.22
 
           docker build \
-            --target prod \
+            --target base_php \
             -t $IMAGE_NAME \
             .
 
