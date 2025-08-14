@@ -25,7 +25,7 @@ jobs:
       - name: Build and Push PHP Image
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/php:8.4-fpm-alpine3.22
-          docker build --target base_php -t $IMAGE_NAME php.Dockerfile
+          docker build --target base_php -t $IMAGE_NAME -f php.Dockerfile .
           docker push $IMAGE_NAME
 
   build-php-nginx:
@@ -46,5 +46,5 @@ jobs:
       - name: Build and Push PHP & Nginx Image
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/php_nginx:8.4-fpm-alpine3.22
-          docker build --target php_nginx -t $IMAGE_NAME php_nginx.Dockerfile
+          docker build --target php_nginx -t $IMAGE_NAME -f php_nginx.Dockerfile .
           docker push $IMAGE_NAME
